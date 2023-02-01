@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,100;0,400;1,700&display=swap");
+@import url("./style-button.css");
+
+* {
+  font-family: "IBM Plex Mono", monospace;
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* cores de texto */
+  --text-white: #ffffff;
+  --text-dark: #142136;
+
+  /* cores de fundo */
+  --bg-grey-light: #f5f5f5;
+  --bg-white: linear-gradient(
+    310deg,
+    rgba(0, 3, 36, 1) 0%,
+    rgba(0, 6, 155, 1) 17%,
+    rgba(3, 158, 176, 1) 57%,
+    rgba(0, 255, 166, 1) 96%
+  );
+  --bg-blue-dark: linear-gradient(
+    310deg,
+    rgb(10, 14, 58) 0%,
+    rgb(5, 7, 53) 17%,
+    rgb(9, 49, 59) 57%,
+    rgb(22, 24, 133) 96%
+  );
+  --bg-indigo: #6366f1;
+}
+.light {
+  background: var(--bg-white);
+}
+.dark {
+  background: var(--bg-blue-dark);
+}
+.content {
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+.clock-date {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.clock-digital {
+  color: white;
+  font-size: 15vw;
+  animation: go-back 0.5s infinite alternate;
+  cursor: pointer;
+}
+@keyframes go-back {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.dia,
+.mes,
+.ano {
+  color: white;
+  font-weight: 100;
+  font-size: 5vw;
+  padding: 8px;
+  cursor: pointer;
+}
+.sol,
+.lua {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  display: none;
+}
+.sol {
+  background: rgb(252, 208, 12);
+  background: linear-gradient(
+    310deg,
+    rgb(224, 131, 9) 17%,
+    rgb(235, 194, 11) 57%,
+    rgb(251, 255, 9) 96%
+  );
+}
+.lua {
+  background: rgb(197, 197, 197);
+  background: linear-gradient(
+    310deg,
+    rgb(254, 255, 255) 17%,
+    rgb(108, 109, 109) 57%,
+    rgb(0, 0, 0) 96%
+  );
+}
+
+#animate-rotate {
+  transform: rotate(10deg);
+  animation: roll 10s infinite;
+}
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.clock-analogico {
+  cursor: pointer;
+  width: 30vw;
+  height: 30vw;
+  margin: 20px;
+  background-color: transparent;
+  background-size: cover;
+  box-shadow: 0 1em 3.8em;
+  border-radius: 50%;
+  position: relative;
+}
+.mark-top,
+.mark-right,
+.mark-left,
+.mark-bottom {
+  border: #000 0.1vw solid;
+  position: absolute;
+  background-color: #000;
+}
+.mark-top {
+  height: 2vw;
+  width: 0.2vw;
+  left: 50%;
+  top: 1vw;
+  transform: translate(-50%);
+}
+.mark-right {
+  height: 0.2vw;
+  width: 2vw;
+  right: 1vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mark-left {
+  height: 0.2vw;
+  width: 2vw;
+  left: 1vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mark-bottom{
+  height: 2vw;
+  width: 0.2vw;
+  left: 50%;
+  bottom: 1vw;
+  transform: translate(-50%);
+}
+.pin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.3vw;
+  height: 0.3vw;
+  background: rgb(0, 0, 0);
+  border: 0.2vw solid #ffffff;
+  border-radius: 10em;
+  margin: auto;
+  z-index: 10;
+}
+.pt-h,
+.pt-m,
+.pt-s {
+  width: 1%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  transform-origin: bottom;
+  z-index: 2;
+  border-radius: 2em;
+}
+.pt-h {
+  height: 6vw;
+  padding: 0.2vw;
+  border: 0.2vw #000 solid;
+  background-color: #fff;
+}
+.pt-m {
+  height: 8vw;
+  border: 0.2vw #000 solid;
+  background-color: rgb(255, 255, 255);
+}
+.pt-s {
+  height: 40%;
+  background-color: rgb(0, 0, 0);
+  transform-origin: 50% 100%;
+}
+
+.on {
+  display: flex;
+}
+.off {
+  display: none;
+}
